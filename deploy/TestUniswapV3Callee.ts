@@ -11,11 +11,16 @@ const func: DeployFunction = async function ({
 
   const { deployer } = await getNamedAccounts()
 
-  await deploy('TestUniswapV3Callee', {
+  const existingDeployments = await deployments.all()
+  const n = Object.keys(existingDeployments).filter(key => key.startsWith('TestUniswapV3Callee')).length;
+  const nextDeployment = `TestUniswapV3Callee-${n}`
+
+  await deploy(nextDeployment, {
     from: deployer,
     args: [],
     log: true,
     deterministicDeployment: false,
+    contract: 'TestUniswapV3Callee'
   })
 }
 
