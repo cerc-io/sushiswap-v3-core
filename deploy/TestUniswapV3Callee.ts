@@ -11,7 +11,7 @@ const func: DeployFunction = async function ({
 
   const { deployer } = await getNamedAccounts()
 
-  await deploy('UniswapV3Factory', {
+  await deploy('TestUniswapV3Callee', {
     from: deployer,
     args: [],
     log: true,
@@ -19,8 +19,8 @@ const func: DeployFunction = async function ({
   })
 }
 
-func.tags = ['UniswapV3Factory']
+func.tags = ['TestUniswapV3Callee']
 
 export default func
 
-// Usage: pnpm hardhat --network docker deploy --tags UniswapV3Factory
+// Usage: pnpm hardhat --network docker deploy --tags TestUniswapV3Callee
