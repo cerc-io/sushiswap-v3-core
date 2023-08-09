@@ -11,16 +11,21 @@ const func: DeployFunction = async function ({
 
   const { deployer } = await getNamedAccounts()
 
-  await deploy('UniswapV3Factory', {
+  const existingDeployments = await deployments.all()
+  const n = Object.keys(existingDeployments).filter(key => key.startsWith('TestUniswapV3Callee')).length;
+  const nextDeployment = `TestUniswapV3Callee-${n}`
+
+  await deploy(nextDeployment, {
     from: deployer,
     args: [],
     log: true,
     deterministicDeployment: false,
+    contract: 'TestUniswapV3Callee'
   })
 }
 
-func.tags = ['UniswapV3Factory']
+func.tags = ['TestUniswapV3Callee']
 
 export default func
 
-// Usage: pnpm hardhat --network docker deploy --tags UniswapV3Factory
+// Usage: pnpm hardhat --network docker deploy --tags TestUniswapV3Callee
