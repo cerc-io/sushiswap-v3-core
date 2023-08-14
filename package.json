@@ -57,6 +57,16 @@
   },
   "scripts": {
     "compile": "hardhat compile",
-    "test": "hardhat test"
+    "test": "hardhat test",
+    "pool:create": "hardhat --network localhost pool-create",
+    "pool:create:docker": "hardhat --network docker pool-create",
+    "pool:initialize": "hardhat --network localhost pool-initialize",
+    "pool:initialize:docker": "hardhat --network docker pool-initialize",
+    "pool:mint": "hardhat --network localhost pool-mint",
+    "pool:mint:docker": "hardhat --network docker pool-mint",
+    "pool:burn": "hardhat --network localhost pool-burn",
+    "pool:burn:docker": "hardhat --network docker pool-burn",
+    "pool:swap": "hardhat --network localhost pool-swap",
+    "pool:swap:docker": "hardhat --network docker pool-swap"
   }
 }

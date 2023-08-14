@@ -8,6 +8,13 @@ import 'hardhat-deploy'
 import 'hardhat-deploy-ethers'
 import { task, types } from 'hardhat/config'
 import { MaxUint128 } from './test/shared/utilities'
+
+import './tasks/pool-create';
+import './tasks/pool-initialize';
+import './tasks/pool-mint';
+import './tasks/pool-burn';
+import './tasks/pool-swap';
+
 const sleep = require('util').promisify(setTimeout)
 const accounts = {
   mnemonic: process.env.MNEMONIC || 'test test test test test test test test test test test junk',
